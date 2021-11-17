@@ -2,9 +2,8 @@
 using namespace std;
 
 int main(){
-    for(int i=0;i<8;i++){
-        cout<<i<<endl;
-    }
-
+    int a,b,c;
+    cin>>a>>b>>c;
+    cout<<"your values are :"<<endl<<a<<endl<<b<<endl<<c<<endl;
     return 0;
 }
