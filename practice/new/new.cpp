@@ -2,8 +2,9 @@
 using namespace std;
 
 int main(){
-    cout <<"hello"<<endl;
-    cout <<"world"<<endl;
+    for(int i=0;i<8;i++){
+        cout<<i<<endl;
+    }
 
     return 0;
 }
