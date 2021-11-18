@@ -1,15 +1,22 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class name{
-    
-    public:
-    static void fun(int a){
-        cout <<"value of a is : "<<a<<endl;
-    }
+class name
+{
+  int b;
 
-    
+public:
+  friend void fun1(name);
 };
-int main(){
-    name::fun(7);
-    return 0;
+void fun1(name c)
+{
+  int t=c.b;
+  t = 90;
+  cout << "value of b is " << t << endl;
+}
+int main()
+{
+  name obj;
+
+  fun1(obj);
+  return 0;
 }
