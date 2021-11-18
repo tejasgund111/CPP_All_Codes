@@ -19,6 +19,10 @@ class name{
     int getB(){
         return b;
     }
+
+    ~name(){
+        cout<<"destructor..."<<endl;
+    }
 };
 int main(){
     name c1(2,5);
