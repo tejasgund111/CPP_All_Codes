@@ -1,22 +1,22 @@
 #include <iostream>
 using namespace std;
-class name
-{
-  int b;
 
-public:
-  friend void fun1(name);
-};
-void fun1(name c)
-{
-  int t=c.b;
-  t = 90;
-  cout << "value of b is " << t << endl;
-}
 int main()
 {
-  name obj;
+  char ch;
+  cin >> ch;
+  if (isupper(ch))
+  {
+    cout << "It is uppercase letter";
+  }
+  else if (islower(ch))
+  {
+    cout << "It is lowercase letter";
+  }
+  else if (isdigit(ch))
+  {
+    cout << "This is a digit";
+  }
 
-  fun1(obj);
   return 0;
 }

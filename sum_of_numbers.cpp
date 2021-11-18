@@ -8,8 +8,8 @@ int main()
     cin >> num;
 
     int sum = 0;
-    int i = 1;
 
+    int i = 1;
     while (i <= num)
     {
         sum += i;
