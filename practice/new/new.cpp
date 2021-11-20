@@ -1,12 +1,19 @@
 #include<iostream>
 using namespace std;
-
+class name{
+  private: 
+  int a;
+  public:
+  void disp(int b){
+    a=b;
+    cout << "value of a is "<<a<<endl;
+  }
+};
 int main(){
-  int a =8;
-  int *b;
-  b=&a;
-  cout<<"Adress of main function "<<main<<endl;
-  cout <<"value of a is "<< *b<<endl;
-
+  name n;
+  name *m;
+  m=&n;
+  m->disp(8);
+  
   return 0;
 }
