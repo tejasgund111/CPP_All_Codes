@@ -23,3 +23,6 @@ int main()
     
     return 0;
 }
+//values of character or alphabets get incremented by the no. as we are adding to them
+//ex.  char ch= 'A' + 2;  cout<<ch;
+// above code gives the output C
