@@ -10,16 +10,17 @@ int main()
     while (i <= n)
     {
         int j = 1;
+
         while (j <= n)
         {
-            char ch = 'A' + j - 1;
-            cout << ch << "  ";
-
+            char start = 'A' + i + j - 2;
+            cout << start << "  ";
+            start++;
             j++;
         }
         cout << endl;
         i++;
     }
-    
+
     return 0;
 }

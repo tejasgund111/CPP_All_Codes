@@ -7,19 +7,20 @@ int main()
     int n;
     cin >> n;
     int i = 1;
+    char start = 'A';
     while (i <= n)
     {
         int j = 1;
+
         while (j <= n)
         {
-            char ch = 'A' + j - 1;
-            cout << ch << "  ";
-
+            cout << start << "  ";
+            start++;
             j++;
         }
         cout << endl;
         i++;
     }
-    
+
     return 0;
 }
