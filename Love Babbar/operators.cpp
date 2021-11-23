@@ -56,7 +56,23 @@ int main()
     //     cout << i << "  " << j << endl;
     // }
     //we can write multiple conditions for for loop
-    // for (int k=0;k>-8;k--){cout<<k<<endl;}
+    // for (int i=0;i>-8;i--){cout<<k<<endl;}
+
+
+    //continue keyword
+    // for(int i=0;i<5;i++){
+    //     cout<<"hi"<<endl;
+    //     cout<<"hey"<<endl;
+    //     continue;
+    //     cout<<"Reply to kar de.."<<endl;
+    // }
+
+    // int a= 4;  //it will not affect the inner scope
+    // {
+    //     int a= 7;  //this variable a is only valid for the block or the inner scope
+    //     cout<<a<<endl;
+    // }
+    // cout<<a<<endl;
 
 
 
