@@ -22,8 +22,8 @@ int main()
     return 0;
 }
 
-//program flow
-//starting is from 0 and 1
-//then the nextNumber is a+b
-//after that a will take the value of b and b will take the value of nextNumber
-//then the repitition of loop will continue
+//program flow    : -->
+//1.starting is from 0 and 1
+//2.then the nextNumber is a+b
+//3.after that a will take the value of b and b will take the value of nextNumber
+//4.then the repitition of loop will continue
