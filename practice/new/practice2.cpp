@@ -1,8 +1,8 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 vector<int> arr;
-int x,y,z;
+int x, y, z;
 void plusMinus()
 {
     double p;
@@ -15,16 +15,16 @@ void plusMinus()
     int negative = 0;
     int zero = 0;
     int i;
-    
+
     for (i = 0; i < n; i++)
     {
         int m;
-        cin>>m;
+        cin >> m;
         arr.push_back(m);
 
         if (arr[i] > 0)
         {
-            x=positive++;
+            x = positive++;
         }
         // if (arr[i] < 0)
         // {
@@ -35,20 +35,20 @@ void plusMinus()
         //     z=++zero;
         // }
     }
-        int d =positive;
-        double pos = d/n;
+    int d = positive;
+    double pos = d / n;
 
-        cout<<fixed<<pos;
-        // p = x / n;
-        // neg = y / n;
-        // z = z / n;
-       
+    cout << fixed << pos;
+    // p = x / n;
+    // neg = y / n;
+    // z = z / n;
 
     // cout<<fixed<<p<<endl;
     // cout<<neg<<endl;
     // cout<<z<<endl;
 }
-int main(){
+int main()
+{
     plusMinus();
     return 0;
 }
