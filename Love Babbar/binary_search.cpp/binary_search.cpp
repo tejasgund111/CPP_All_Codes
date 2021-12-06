@@ -14,7 +14,7 @@ int binarySearch(int arr[], int size, int key)
             return mid;
         }
 
-        // when we have to go to left part then end=mid-1 and when have to go to right then start= mid + 1
+        // when we have to go to left part then end = mid - 1 and when have to go to right then start = mid + 1
 
         // go to right wala part
         if (key > arr[mid])
