@@ -8,7 +8,7 @@ int main()
     int n;
     cout<<"Enter your no. ->";
     cin>>n;
-    
+
 
     int ans = 0;
     int i = 0;

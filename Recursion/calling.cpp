@@ -13,3 +13,5 @@ int main()
     fact(7);
     return 0;
 }
+
+// In recursion the function is itself being called inside the function...And the function containing recursion is called recursive funcition
