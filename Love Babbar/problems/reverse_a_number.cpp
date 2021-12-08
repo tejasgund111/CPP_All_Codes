@@ -14,5 +14,5 @@ int main()
     cout << "Reversed Number: " << reverse << endl;
     return 0;
 }
-
+//132 / 10 = 13
 // 132 % 10 = 2  .i.e. remainder
