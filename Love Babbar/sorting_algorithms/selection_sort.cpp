@@ -12,7 +12,7 @@ void selectionSort(int arr[], int n)
                 minIndex = j;
             }
         }
-        swap(arr[minIndex], arr[i]);cls
+        swap(arr[minIndex], arr[i]);
     }
     // sorted array...
     for (int i = 0; i < n; i++)
