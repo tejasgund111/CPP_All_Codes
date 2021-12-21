@@ -1,32 +1,17 @@
+// C++ program for illustration of swap() function
 #include <iostream>
 using namespace std;
 
-int find_peak(int arr[], int size)
-{
-    int s = 0, e = size - 1;
-    int mid = s + (e - s) / 2;
-    
-    while (s < e)
-    {
-        if (arr[mid] < arr[mid + 1])
-        {
-            s = mid + 1;
-        }
-        else
-        {
-            e = mid;
-        }
-
-        mid = s + (e - s) / 2;
-    }
-    return s;
-}
-
 int main()
 {
-    int ar[4] = {3, 4, 5, 1};
-    cout << "Peak index in the array is : " << find_peak(ar, 4);
-    return 0;
-}
+	int a = 10;
+	int b = 20;
+	cout << "Value of a before: " << a << endl;
+	cout << "Value of b before: " << b << endl;
 
-// This program will return the index of the peak element in the mountain array
+	// swap values of the variables
+	swap(a, b);
+	cout << "Value of a now: " << a << endl;
+	cout << "Value of b now: " << b << endl;
+	return 0;
+}
