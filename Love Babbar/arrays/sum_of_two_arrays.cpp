@@ -56,6 +56,7 @@ vector<int> findArraySum(vector<int> &a, int n, vector<int> &b, int m)
 
     // print (ans)
     reverse(ans);
+   
 }
 
 int main()

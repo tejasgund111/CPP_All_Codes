@@ -1,5 +1,5 @@
 // A simple C++ program for traversal of a linked list
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 class Node
@@ -20,7 +20,6 @@ void printList(Node *n)
     }
 }
 
-// Driver code
 int main()
 {
     Node *head = NULL;
@@ -46,4 +45,3 @@ int main()
     return 0;
 }
 
-// This is code is contributed by rathbhupendra
