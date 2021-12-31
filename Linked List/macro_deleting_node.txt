@@ -1,0 +1,7 @@
+void del (node *before_del)
+{
+    node* temp;
+    temp = before_del->next;
+    before_del->next = temp->next;
+    delete temp;
+}

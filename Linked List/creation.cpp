@@ -14,9 +14,10 @@ void display(Node *head)
     Node *p = head;
     while (p != NULL)
     {
-        cout << p->data << " ";
+        cout << p->data << "->";
         p = p->next;
     }
+    cout<<"NULL";
 }
 
 int main()
@@ -25,6 +26,7 @@ int main()
     cout << "Enter count of nodes -> ";
     int n, key;
     cin >> n;
+
     Node *head = new Node;
     cin >> (head->data);
     head->next = NULL;
