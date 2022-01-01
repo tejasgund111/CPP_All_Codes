@@ -9,6 +9,7 @@ public:
 };
 Node *head = NULL;
 
+
 void display(Node *head)
 {
     Node *p = head;

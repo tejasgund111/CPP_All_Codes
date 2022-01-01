@@ -9,14 +9,27 @@ public:
 };
 Node *head = NULL;
 
+void deleteBeg(Node *head)
+{
+   if(head == NULL){
+       cout<<"List is empty"<<endl;
+   }
+   else{
+       Node *ptr = head;
+       head = head -> next;
+       delete ptr;
+   }
+}
+
 void display(Node *head)
 {
     Node *p = head;
     while (p != NULL)
     {
-        cout << p->data << " ";
+        cout << p->data << "->";
         p = p->next;
     }
+    cout<<"NULL";
 }
 
 int main()
@@ -25,6 +38,7 @@ int main()
     cout << "Enter count of nodes -> ";
     int n, key;
     cin >> n;
+
     Node *head = new Node;
     cin >> (head->data);
     head->next = NULL;
@@ -38,6 +52,8 @@ int main()
     }
 
     display(head);
-
+    deleteBeg(head);
+    display(head);
+    
     return 0;
 }

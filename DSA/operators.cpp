@@ -55,17 +55,16 @@ int main()
     // {
     //     cout << i << "  " << j << endl;
     // }
-    //we can write multiple conditions for for loop
+    // we can write multiple conditions for for loop
     // for (int i=0;i>-8;i--){cout<<k<<endl;}
 
-
-    //continue keyword
-    // for(int i=0;i<5;i++){
-    //     cout<<"hi"<<endl;
-    //     cout<<"hey"<<endl;
-    //     continue;
-    //     cout<<"Reply to kar de.."<<endl;
-    // }
+    // continue keyword
+    //  for(int i=0;i<5;i++){
+    //      cout<<"hi"<<endl;
+    //      cout<<"hey"<<endl;
+    //      continue;
+    //      cout<<"Reply to kar de.."<<endl;
+    //  }
 
     // int a= 4;  //it will not affect the inner scope
     // {
@@ -73,8 +72,6 @@ int main()
     //     cout<<a<<endl;
     // }
     // cout<<a<<endl;
-
-
 
     return 0;
 }
