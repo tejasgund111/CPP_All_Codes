@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 class Node
@@ -9,6 +9,11 @@ public:
 };
 Node *head = NULL;
 
+void deleteBeg(Node* &head){
+    Node *temp = head;
+    head = head-> next;  //pointing head to next address
+    delete temp;
+}
 
 void display(Node *head)
 {
@@ -18,12 +23,10 @@ void display(Node *head)
         cout << p->data << "->";
         p = p->next;
     }
-    cout<<"NULL";
+    cout<<"NULL"<<endl;
 }
 
-int main()
-{
-
+int main(){
     cout << "Enter count of nodes -> ";
     int n, key;
     cin >> n;
@@ -39,7 +42,9 @@ int main()
         p = p->next;
         cin >> (p->data);
     }
-
+    cout<<"Before deletion  ";
+    display(head);
+    deleteBeg(head);
     display(head);
 
     return 0;

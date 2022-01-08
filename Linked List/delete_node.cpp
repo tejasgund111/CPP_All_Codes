@@ -9,6 +9,16 @@ public:
 };
 Node *head = NULL;
 
+void deleteNode(Node *head)
+{
+    if (head->next == NULL)
+        delete head;
+    swap(head->data, head->next->data);
+    Node *temp = head->next;
+    head->next = head->next->next;
+
+    delete temp; // if you don't use this then also the code is going to work corect
+}
 
 void display(Node *head)
 {
@@ -18,7 +28,7 @@ void display(Node *head)
         cout << p->data << "->";
         p = p->next;
     }
-    cout<<"NULL";
+    cout<<"NULL"<<endl;
 }
 
 int main()
@@ -39,8 +49,12 @@ int main()
         p = p->next;
         cin >> (p->data);
     }
-
+    cout<<"Before deletion  ";
     display(head);
+    deleteNode(head->next);  //value of the node which you want to delete
+    cout<<"After deletion  ";
+    display(head);
+
 
     return 0;
 }
