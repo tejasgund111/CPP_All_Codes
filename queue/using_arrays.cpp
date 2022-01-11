@@ -6,7 +6,7 @@ int queue[N];
 int front = -1;
 int rear = -1;
 
-void enque(int x)
+void enqueue(int x)
 {
     if (rear == N - 1)
     {
@@ -24,7 +24,7 @@ void enque(int x)
     }
 }
 
-void deque()
+void dequeue()
 {
     if (front == -1 && rear == -1)
     {
@@ -72,15 +72,15 @@ void display()
 
 int main()
 {
-    enque(4);
-    enque(8);
-    enque(6);
-    enque(2);
-    enque(3);
+    enqueue(4);
+    enqueue(8);
+    enqueue(6);
+    enqueue(2);
+    enqueue(3);
 
     display();
     peek();
-    deque();
+    dequeue();
     display();
     peek();
 

@@ -10,7 +10,7 @@ public:
 Node *front = 0;
 Node *rear = 0;
 
-void enque(int x)
+void enqueue(int x)
 {
     Node *newnode = new Node();
     newnode->data = x;
@@ -26,7 +26,7 @@ void enque(int x)
     }
 }
 
-void deque()
+void dequeue()
 {
     Node *temp = front;
     if (front == 0 && rear == 0)
@@ -66,14 +66,14 @@ void display()
 
 int main()
 {
-    enque(5);
-    enque(4);
-    enque(3);
-    enque(2);
+    enqueue(5);
+    enqueue(4);
+    enqueue(3);
+    enqueue(2);
 
     display();
     peek();
-    deque();
+    dequeue();
     display();
     peek();
 

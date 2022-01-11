@@ -6,7 +6,7 @@ int queue[N];
 int front = -1;
 int rear = -1;
 
-void enque()
+void enqueue()
 {
     int x;
     cout << "Enter element -> ";
@@ -27,7 +27,7 @@ void enque()
     }
 }
 
-void deque()
+void dequeue()
 {
     if (front == -1 && rear == -1)
     {
@@ -81,10 +81,10 @@ int main()
         switch (choice)
         {
         case 1:
-            enque();
+            enqueue();
             break;
         case 2:
-            deque();
+            dequeue();
             break;
         case 3:
             display();
