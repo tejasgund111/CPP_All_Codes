@@ -1,0 +1,33 @@
+void merge(int vec1[], int vec2[], int n, int m)
+{
+    int i = 0, j = 0, k = n - 1;
+    while (i <= k && j < m)
+    {
+        if (vec1[i] < vec2[j])
+            i++;
+        else
+        {
+            swap(vec2[j++], vec1[k--]);
+        }
+    }
+
+    sort(vec1, vec1 + n);
+    sort(vec2, vec2 + m);
+}
+
+
+Merging Without Using Extra Space
+While iterating over the two sorted arrays parallelly, if we encounter the jth second array element is smaller than ith first array element, then the jth element is to be included and replace some kth element in the first array.
+
+Algorithm:
+
+Initialize i,j,k as 0,0,n-1 where n is size of vec1 
+Iterate through every element of vec1 and vec2 using two pointers i and j respectively
+
+if vec1[i] is less than vec2[j]
+        increment i
+    else
+        swap the vec2[j] and vec1[k]
+        increment j and decrement k
+
+Sort both vec1 and vec2.

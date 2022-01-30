@@ -22,7 +22,6 @@ void delete_specified(Node *head)
     }
     ptr1->next = ptr->next;
     delete ptr;
-    
     cout << "Deleted " << loc << " node " << endl;
 }
 
@@ -70,3 +69,5 @@ int main()
 
     return 0;
 }
+
+// for the process of the deletion of the node after specified location we have the need of the two pointers which can store the values of the previous node and the current node which we are going to delete

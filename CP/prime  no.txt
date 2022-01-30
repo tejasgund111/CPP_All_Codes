@@ -1,0 +1,65 @@
+2,3,5,7,...
+2 is the only even prime number
+if the number is prime then that no. is only divisible by 1 and that number itself
+
+bool isPrime(int n){
+    if(n==1){
+        return false;
+    }
+    for(int i=2;i<n;i++){
+        if(n%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+O(n) ->time complexity
+the worst case for the algorithm will be when the number will be prime
+
+optimization: 
+
+Idea : divisor always appear in pairs
+30 : (1,30), (2,15), (3,10), (5,6)
+65 : (1,65), (5,13)
+
+if (x,y) is a pair x*y = n
+and if x<=y
+       x*x<=n
+       x<=sqrt(n)
+
+
+optimized approach:
+
+bool isPrime(int n){
+    if(n==1){
+        return false;
+    }
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+O(sqrt(n)) ->time complexity
+
+another optimization:
+check is divisible by 2 or 3 then it will skip many iterations
+
+bool isPrime(int n){
+    if(n==1){
+        return false;
+    }
+    if(n==2 || n==3) return true;
+    if(n%2==0 || n%3==0) return false;
+
+    for(int i=5;i*i<=n;i=i+6){ 
+        if(n%i==0 || n%(i+2)==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+

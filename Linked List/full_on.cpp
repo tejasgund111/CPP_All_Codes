@@ -92,34 +92,33 @@ void beginsert()
 }
 void lastinsert()
 {
-    Node *ptr, *temp;
+    Node *ptr = new Node();
     int item;
-    ptr = new Node();
+    cout << "Enter data : ";
+    cin >> item;
     if (ptr == NULL)
     {
-        cout << "\nOVERFLOW";
+        cout << "OVERFLOW" << endl;
     }
     else
     {
-        printf("\nEnter value?\n");
-        cout << item;
         ptr->data = item;
+        ptr->next = NULL;
+
         if (head == NULL)
         {
-            ptr->next = NULL;
             head = ptr;
-            printf("\nNode inserted");
+            cout << "Node inserted " << endl;
         }
         else
         {
-            temp = head;
+            Node *temp = head;
             while (temp->next != NULL)
             {
                 temp = temp->next;
             }
             temp->next = ptr;
-            ptr->next = NULL;
-            printf("\nNode inserted");
+            cout << "Node inserted " << endl;
         }
     }
 }
@@ -265,8 +264,9 @@ void display()
         printf("\nprinting values . . . . .\n");
         while (ptr != NULL)
         {
-            printf("\n%d", ptr->data);
+            cout << ptr->data << "->";
             ptr = ptr->next;
         }
+        cout << "NULL" << endl;
     }
 }

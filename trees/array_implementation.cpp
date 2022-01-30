@@ -15,9 +15,9 @@ int root(char key)
 int set_left(char key, int parent)
 {
     if (tree[parent] == '\0')
-        cout << "\nCan't set child at"
-             << (parent * 2) + 1
-             << " , no parent found";
+    {
+        cout << "\nCan't set child at" << (parent * 2) + 1 << " , no parent found";
+    }
     else
         tree[(parent * 2) + 1] = key;
     return 0;
@@ -26,9 +26,9 @@ int set_left(char key, int parent)
 int set_right(char key, int parent)
 {
     if (tree[parent] == '\0')
-        cout << "\nCan't set child at"
-             << (parent * 2) + 2
-             << " , no parent found";
+    {
+        cout << "\nCan't set child at" << (parent * 2) + 2 << " , no parent found";
+    }
     else
         tree[(parent * 2) + 2] = key;
     return 0;
@@ -60,7 +60,7 @@ int main()
     set_right('G', 2);
     set_left('H', 3);
     set_right('I', 3);
-    
+
     print_tree();
     return 0;
 }
