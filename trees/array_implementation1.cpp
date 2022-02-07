@@ -2,7 +2,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-char tree[10];
+char tree[11];
 
 int root(char key)
 {
@@ -38,7 +38,7 @@ int set_right(char key, int parent)
 int print_tree()
 {
     cout << "\n";
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 11; i++)
     {
         if (tree[i] != '\0')
             cout << tree[i];

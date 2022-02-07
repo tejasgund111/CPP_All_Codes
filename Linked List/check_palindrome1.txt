@@ -1,0 +1,70 @@
+
+approach:
+1.create an array
+2.copy linked list content in the array
+3.then check the array is palindrome or not
+
+space complexity O(n)
+time complexity O(n)
+
+method 1
+1. by using arrays
+int length(Node *head)
+{
+    int count = 0;
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        count++;
+        temp = temp->next;
+    }
+    return count;
+}
+bool isPalindrome(Node *head)
+{
+    // Your code here
+    Node *temp = head;
+
+    int count = length(head);
+    int arr[count];
+    int i = 0;
+    while (temp != NULL)
+    {
+        arr[i++] = (temp->data);
+        temp = temp->next;
+    }
+
+    int start = 0;
+    int end = count - 1;
+    while (start <= end)
+    {
+        if (arr[start++] != arr[end--])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+method 2
+by using vector
+
+bool isPalindrome(Node *head)
+{
+    Node *temp = head;
+    vector<int>v;
+    while(temp!=NULL){
+        v.push_back(temp->data);
+        temp = temp->next;
+    }
+
+    int start = 0;
+    int end = v.size()-1;
+    while(start<=end){
+        if(v[start++]!=v[end--])
+            return false;
+    }
+
+    return true;
+
+}   

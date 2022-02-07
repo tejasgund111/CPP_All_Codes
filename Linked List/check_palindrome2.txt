@@ -1,0 +1,59 @@
+Approach:
+1. find middle of the linked list
+2. reverse after the linked list
+3. compare both the halves
+4. repeat 2nd step
+
+class Solution{
+ public:
+  Node* getmid(Node *head){
+   Node* slow=head;
+   Node* fast=head->next;
+   while(fast != NULL && fast->next != NULL){
+       fast=fast->next->next;
+       slow=slow->next;
+       
+   }
+   return slow;
+   }
+Node* reverse(Node *head){
+   Node* curr=head;
+   Node* prev=NULL;
+   Node* next=NULL;
+   while(curr != NULL){
+       next= curr->next;
+       curr->next=prev;
+       prev=curr;
+       curr=next;
+   }
+   return prev;
+}
+
+   //Function to check whether the list is palindrome.
+   bool isPalindrome(Node *head)
+   {
+       //Your code here
+      
+       if(head->next == NULL){
+           return true;
+       }
+       ////find middle
+       Node* middle=getmid(head);
+       ///mid+1 to end reverse the linked list
+       Node*temp=middle->next;
+       middle->next=reverse(temp);
+       ///then check wheather it head && mid+1 is same
+       Node* head1=head;
+       Node* head2=middle->next;
+       while(head2 != NULL){
+           if(head1->data != head2->data){
+               return false;
+           }
+           else{
+               head1=head1->next;
+               head2=head2->next;
+           }
+       }
+       return true;
+   }
+};
