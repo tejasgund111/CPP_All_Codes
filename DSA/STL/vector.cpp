@@ -57,3 +57,5 @@ int main()
     return 0;
 }
 // It's capacity get doubles when it gets completely filled
+
+// using the vector is usually faster than using the ordinary array
