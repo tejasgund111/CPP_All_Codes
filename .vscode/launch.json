@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch hello",
             "request": "launch",
+            "mainClass": "Java.hello",
+            "projectName": "c++_programs_ec61d994"
+        },
+        {
+            "type": "java",
+            "name": "Launch hello",
+            "request": "launch",
             "mainClass": "hello",
             "projectName": "c++_programs_ec61d994"
         },
