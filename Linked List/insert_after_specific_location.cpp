@@ -24,7 +24,7 @@ void insertAtIndex(Node *head, int item)
         cin >> loc;
         ptr->data = item;
         temp = head;
-        for (i = 0; i < loc; i++)
+        for (i = 1; i < loc; i++)
         {
             temp = temp->next;
         }
