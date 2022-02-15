@@ -29,6 +29,8 @@ int main()
     cin >> n;
 
     Node *head = new Node();
+    head = new Node();  // this will also work
+
     cin >> (head->data);
     head->next = NULL;
 
