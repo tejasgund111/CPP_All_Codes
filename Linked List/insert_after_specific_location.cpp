@@ -11,7 +11,6 @@ public:
 void insertAtIndex(Node *head, int item)
 {
     Node *ptr = new Node();
-    Node *temp;
     int i, loc;
     if (ptr == NULL)
     {
@@ -23,7 +22,7 @@ void insertAtIndex(Node *head, int item)
         cout << "Enter the location ->";
         cin >> loc;
         ptr->data = item;
-        temp = head;
+        Node *temp = head;
         for (i = 1; i < loc; i++)
         {
             temp = temp->next;
