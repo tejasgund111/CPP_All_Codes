@@ -70,9 +70,12 @@ void delFromEnd()
     }
     else
     {
-        // tail->prev->next = 0;
+        tail->prev->next = 0;
         tail = tail->prev;
-        tail->next = 0;
+        
+
+        // tail = tail->prev;
+        // tail->next = 0;  //this will also work the same
         delete temp;
     }
 }
