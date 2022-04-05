@@ -6,7 +6,7 @@ using namespace std;
 class Node
 {
 public:
-    int key;
+    int data;
     Node *left, *right;
 };
 
@@ -14,7 +14,7 @@ public:
 Node *newNode(int item)
 {
     Node *temp = new Node();
-    temp->key = item;
+    temp->data = item;
     temp->left = temp->right = NULL;
     return temp;
 }
@@ -28,7 +28,7 @@ void inorder(Node *root)
         inorder(root->left);
 
         // Traverse root
-        cout << root->key << " -> ";
+        cout << root->data << " -> ";
 
         // Traverse right
         inorder(root->right);
@@ -43,7 +43,7 @@ Node *insert(Node *node, int key)
         return newNode(key);
 
     // Traverse to the right place and insert the node
-    if (key < node->key)
+    if (key < node->data)
         node->left = insert(node->left, key);
     else
         node->right = insert(node->right, key);
@@ -103,9 +103,9 @@ Node *deleteNode(Node *root, int key)
         return root;
 
     // Find the node to be deleted
-    if (key < root->key)
+    if (key < root->data)
         root->left = deleteNode(root->left, key);
-    else if (key > root->key)
+    else if (key > root->data)
         root->right = deleteNode(root->right, key);
     else
     {
@@ -127,12 +127,50 @@ Node *deleteNode(Node *root, int key)
         Node *temp = minValueNode(root->right);
 
         // Place the inorder successor in position of the node to be deleted
-        root->key = temp->key;
+        root->data = temp->data;
 
         // Delete the inorder successor
-        root->right = deleteNode(root->right, temp->key);
+        root->right = deleteNode(root->right, temp->data);
     }
     return root;
+}
+
+void search(Node* root, int key, Node* node)
+{
+    // if the key is not present in the key
+    if (root == nullptr)
+    {
+        cout << "key not found";
+        return;
+    }
+ 
+    // if the key is found
+    if (root->data == key)
+    {
+        if (node == nullptr) {
+            cout << "The node with data " << key << " is root node";
+        }
+        else if (key < node->data)
+        {
+            cout << "The given key is the left node of the node with data "
+                 << node->data;
+        }
+        else  {
+            cout << "The given key is the right node of the node with data "
+                 << node->data;
+        }
+ 
+        return;
+    }
+ 
+    // if the given key is less than the root node, recur for the left subtree;
+    // otherwise, recur for the right subtree
+ 
+    if (key < root->data) {
+        search(root->left, key, root);
+    } else {
+        search(root->right, key, root);
+    }
 }
 
 int main()
@@ -161,6 +199,9 @@ int main()
     mirror(root);
     cout << "Inorder traversal for mirror image of tree is : ";
     inorder(root);
+
+    cout<<endl;
+    search(root, 25, NULL);
 
     return 0;
 }
