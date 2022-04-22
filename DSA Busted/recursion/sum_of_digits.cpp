@@ -19,3 +19,11 @@ int main()
 
     return 0;
 }
+
+// This will also works the same
+// int digitSum(int n)
+// {
+//     if (n == 0)
+//         return 0;
+//     return digitSum(n / 10) + n % 10;
+// }

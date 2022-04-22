@@ -24,6 +24,15 @@ int main()
     return 0;
 }
 
+// This will also works the same
+// bool isPalindrome(string str, int start, int end)
+// {
+//     if (start >= end)
+//         return true;
+
+//     return (str[start] == str[end]) && isPalindrome(str, start + 1, end - 1);
+// }
+
 // The following code is also works same as above one :)
 
 // #include <iostream>
