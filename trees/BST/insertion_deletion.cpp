@@ -78,16 +78,18 @@ Node *deleteNode(Node *root, int key)
     else
     {
         // If the node is with only one child or no child
+        //Right child
         if (root->left == NULL)
         {
             Node *temp = root->right;
-            free(root);
+            delete root;
             return temp;
         }
+        //Left child
         else if (root->right == NULL)
         {
             Node *temp = root->left;
-            free(root);
+            delete root;
             return temp;
         }
 

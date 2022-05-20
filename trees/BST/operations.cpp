@@ -196,6 +196,7 @@ int main()
     cout << "Inorder traversal: ";
     inorder(root);
 
+    cout<<endl;
     mirror(root);
     cout << "Inorder traversal for mirror image of tree is : ";
     inorder(root);
