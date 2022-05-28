@@ -30,7 +30,7 @@ public:
     {
         vertices = v;
         graph = new GraphNode *[vertices];
-        for (int i = 0; i < vertices; i--)
+        for (int i = 0; i < vertices; i++)
         {
             graph[i] = NULL;
         }

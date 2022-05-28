@@ -3,12 +3,15 @@
 int *fun(){
     int *arr[] = new arr[2];
     return arr;
-}   // it will be fine and will work properly
+}
+// it will be fine and will work properly
 
 vector<int> fun(){
     vector<int > v;
     return v;
 }
+
+we can simply copy a vector into another
 
 */
 
@@ -18,6 +21,8 @@ using namespace std;
 
 int main()
 {
+    /*
+
     vector<int> v;
     v.push_back(10);
     v.push_back(11);
@@ -38,5 +43,34 @@ int main()
     }
     cout << endl;
 
+    */
+
+    /*
+     int n = 3, x = 10;
+     vector<int> v(n, x);                           // all the values in the vector is 10
+     for (auto it = v.begin(); it != v.end(); it++) // traversing using iterator
+     {
+         cout << (*it) << " ";
+     }
+     cout << endl;
+     */
+
+    int arr[] = {10, 5, 20};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    vector<int> v(arr, arr + n); // here we are passing the address of the first and element after the last
+    for (auto it = v.begin(); it != v.end(); it++)
+    {
+        cout << (*it) << " ";
+    }
+    cout << endl;
+
+    for (auto it = v.rbegin(); it != v.rend(); it++) // rbegin() -> points to the last element & rend() -> points to the first element
+    {
+        cout << (*it) << " ";
+    }
+
     return 0;
 }
+
+// v.end() returns the address of the element which is next to the end
+// when something is not present in the vector it will return the end which is useful in unordered_set and unordered_map
