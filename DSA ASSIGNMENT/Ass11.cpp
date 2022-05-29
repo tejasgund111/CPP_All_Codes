@@ -1,6 +1,3 @@
-/*
-    The  Anonymous
-*/
 #include<iostream>
 #include<fstream>
 #include<stdlib.h>
@@ -182,3 +179,5 @@ int main()
         }
     }
 }
+
+// Here all the operations in this program will be performed in the database.txt file which have to be in the same directory

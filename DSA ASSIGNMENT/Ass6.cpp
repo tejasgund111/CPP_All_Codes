@@ -1,6 +1,5 @@
-
 #include <iostream>
-#include <string.h> 
+#include <string.h>
 using namespace std;
 class flight
 {
@@ -18,18 +17,18 @@ flight::flight()
     int i, j;
     for (i = 0; i < 10; i++)
     {
-        strcpy(city_index[i], "xx"); // To make city index xx
+        strcpy(city_index[i], "xx"); // To make city index xx i.e. actually naming the rows and columns
     }
     for (i = 0; i < 10; i++)
     {
         for (j = 0; j < 10; j++)
         {
-            am[i][j] = 0; //// To make cost zero
+            am[i][j] = 0; // To make cost zero i.e. firstly making all the values in the adjacency matrix as zero
         }
     }
 }
 
-int flight::create() // Create Matrix
+int flight::create() //  To Create Matrix
 {
     int city_count = 0, j, si, di, wt;
     char s[10], d[10], c;
@@ -37,7 +36,7 @@ int flight::create() // Create Matrix
     {
         cout << "\n\tEnter Source City : "; // Entering Source Cities
         cin >> s;
-        cout << "\n\tEnter Destination City : "; ////Entering destination Cities
+        cout << "\n\tEnter Destination City : "; // Entering destination Cities
         cin >> d;
 
         for (j = 0; j < 10; j++)
@@ -46,7 +45,6 @@ int flight::create() // Create Matrix
                 break;
         }
         if (j == 10) // if not found
-
         {
             strcpy(city_index[city_count], s); // if city is not present then copy //source city at current index
             city_count++;
@@ -63,14 +61,16 @@ int flight::create() // Create Matrix
 
             city_count++;
         }
+        // same things are done for source city and destination city
 
         cout << "\n\t Enter Distance From " << s << " And " << d << ": ";
         cin >> wt;
         for (j = 0; j < 10; j++)
         {
-            if (strcmp(city_index[j], s) == 0) // search that S&D index in
+            // search that S&D index in matrix & copy them in si,di
+            if (strcmp(city_index[j], s) == 0)
                 si = j;
-            if (strcmp(city_index[j], d) == 0) // matrix &copy them in si,di
+            if (strcmp(city_index[j], d) == 0)
                 di = j;
         }
         am[si][di] = wt;
