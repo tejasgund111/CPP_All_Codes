@@ -30,14 +30,16 @@ int main()
     min.push(10);
 
     int m = min.size();
+    cout <<"Size of min is -> "<< m <<endl;
+
     for (int i = 0; i < m; i++)
     {
-        cout << max.top() << " ";
+        cout << min.top() << " ";
         min.pop();
     }
     cout << endl;
 
-    cout << "Khaali hai kya bhai?? -> " << min.empty() << endl;
+    cout << "Khaali hai kya bhai?? -> " << min.empty() << endl;  // at the end it is getting empty due to   min.pop()
 
     
     return 0;

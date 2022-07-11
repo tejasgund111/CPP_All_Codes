@@ -1,74 +1,116 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-#define ROW 10
-#define COL 10
-#define infi 9999
+class tree
+{
+	int a[20][20], l, u, w, i, j, v, e, visited[20];
 
-class prims {
-    int graph[ROW][COL], nodes;
 public:
-    void createGraph();
-    void primsAlgo();
+	void input()
+	{
+		cout << "Enter the no. of branches: ";
+		cin >> v;
+
+		for (i = 0; i < v; i++)
+		{
+			visited[i] = 0;
+			for (j = 0; j < v; j++)
+			{
+				a[i][j] = 999;
+			}
+		}
+
+		cout << "\nEnter the no. of connections: ";
+		cin >> e;
+
+		for (i = 0; i < e; i++)
+		{
+			cout << "Enter the end branches of connections:  " << endl;
+			cin >> l >> u;
+			cout << "Enter the phone company charges for this connection:  ";
+			cin >> w;
+			a[l - 1][u - 1] = a[u - 1][l - 1] = w;
+		}
+	}
+
+	void display()
+	{
+		cout << "\nAdjacency matrix:";
+		for (i = 0; i < v; i++)
+		{
+			cout << endl;
+			for (j = 0; j < v; j++)
+			{
+				cout << a[i][j] << "   ";
+			}
+			cout << endl;
+		}
+	}
+
+	void minimum()
+	{
+		int p = 0, q = 0, total = 0, min;
+		visited[0] = 1;
+		for (int count = 0; count < (v - 1); count++)
+		{
+			min = 999;
+			for (i = 0; i < v; i++)
+			{
+				if (visited[i] == 1)
+				{
+					for (j = 0; j < v; j++)
+					{
+						if (visited[j] != 1)
+						{
+							if (min > a[i][j])
+							{
+								min = a[i][j];
+								p = i;
+								q = j;
+							}
+						}
+					}
+				}
+			}
+			visited[p] = 1;
+			visited[q] = 1;
+			total = total + min;
+			cout << "Minimum cost connection is" << (p + 1) << " -> " << (q + 1) << "  with charge : " << min << endl;
+		}
+		cout << "The minimum total cost of connections of all branches is: " << total << endl;
+	}
 };
 
-void prims::createGraph() {
-    int i, j;
-    cout << "Enter Total Offices: ";
-    cin >> nodes;
-    cout << "\nEnter Adjacency Matrix: \n";
-    for (i = 0; i < nodes; i++) {
-        for (j = i; j < nodes; j++) {
-            cout << "Enter distance between " << i << " and " << j << endl;
-            cin >> graph[i][j];
-            graph[j][i] = graph[i][j];
-        }
-    }
+int main()
+{
+	int ch;
+	tree t;
+	do
+	{
+		cout << "==========PRIM'S ALGORITHM=================" << endl;
+		cout << "\n1.INPUT\n \n2.DISPLAY\n \n3.MINIMUM\n"
+			 << endl;
+		cout << "Enter your choice :" << endl;
+		cin >> ch;
 
-    for (i = 0; i < nodes; i++) {
-        for (j = 0; j < nodes; j++) {
-            if (graph[i][j] == 0)
-                graph[i][j] = infi;    //fill infinity where path is not present
-        }
-    }
-}
+		switch (ch)
+		{
+		case 1:
+			cout << "*******INPUT YOUR VALUES*******" << endl;
+			t.input();
+			break;
 
-void prims::primsAlgo() {
-    int selected[ROW], i, j, ne=0;
-    int zero = 0, one = 1, min = 0, x, y;
-    int cost = 0;
-    for (i = 0; i < nodes; i++)
-        selected[i] = zero;
+		case 2:
+			cout << "*******DISPLAY THE CONTENTS********" << endl;
+			t.display();
+			break;
 
-    selected[0] = one;        //starting vertex is always node-0
+		case 3:
+			cout << "*********MINIMUM************" << endl;
+			t.minimum();
+			break;
+		}
 
-    while (ne < nodes - 1) {
-        min = infi;
-
-        for (i = 0; i < nodes; i++) {
-            if (selected[i] == one) {
-                for (j = 0; j < nodes; j++) {
-                    if (selected[j] == zero) {
-                        if (min > graph[i][j]) {
-                            min = graph[i][j];
-                            x = i;
-                            y = j;
-                        }
-                    }
-                }
-            }
-        }
-        selected[y] = one;
-        cout << "\n" << x << " --> " << y;
-        cost += graph[x][y];
-        ne++;
-    }
-    cout << "\nTotal cost is: " << cost << endl;
-}
-
-int main() {
-    prims MST;
-    cout << "\nPrims Algorithm to connect several offices\n";
-    MST.createGraph();
-    MST.primsAlgo();
+	} while (ch != 4);
+	return 0;
 }
