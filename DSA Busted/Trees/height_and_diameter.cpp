@@ -56,6 +56,20 @@ int height(node *root)
 //         return 1+ max(height(root->left), height(root->right));
 // }
 
+
+// int res = 0;
+// int height(node *root){
+//     if(root == NULL)
+//         return 0;
+//     int left = height(root->left);
+//     int right = height(root->right);
+//     res = max(res, left+right+1);
+
+//     return 1+max(left, right);
+// }
+
+/* this above function will return the height but sets the "res" variable sets to the diameter */
+
 int diameter(node *root)
 {
     if (root == NULL)
