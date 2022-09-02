@@ -1,0 +1,38 @@
+// this functions will return true or false whether the given tree is bst or not
+
+// naive solution
+// correct but inefficient
+1. find maximum in left subtree and minimum in right subtree
+2. check if the current node is greater than minimum and smaller than minimum
+
+
+
+
+// efficient solution
+bool isBST(Node *root, int min, int max){
+    if(root == NULL)
+        return true;'
+
+    return (root->data > min && root->data < max && isBST(root->left, min, root->data) && isBST(root->right,root->data,max));
+    
+}
+// here the passed values min = INT_MIN and max = INT_MAX
+// when we are calling for the left subtree we are changing the max value to the root value and when calling for right subtree
+// we are changing the min value to the root value
+
+
+// one more solution
+// If the inorder traversal of the tree is in increasing order then the tree is BST
+
+int prev = INT_MIN;
+bool isBST(Node *root){
+    if(root == NULL)
+        return true;
+    if(isBST(root->left)==false)
+        return false;
+    if(root->data <= prev)
+        return false;
+    prev = root -> data;
+
+    return isBST(root -> right);
+}

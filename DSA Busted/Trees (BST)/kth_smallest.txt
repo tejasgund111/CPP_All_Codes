@@ -1,0 +1,16 @@
+// here this function will return the k-th smallest element in the tree
+// time complexit = O(n)
+
+
+int count = 0;
+void printKthSmallest(Node *root, int k)
+{
+    if (root != NULL)
+    {
+        printKthSmallest(root->left, k);
+        count++;
+        if (count == k)
+            cout << root->data << endl;
+        printKthSmallest(root->right, k);
+    }
+}

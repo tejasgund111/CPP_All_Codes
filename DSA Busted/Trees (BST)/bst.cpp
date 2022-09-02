@@ -152,6 +152,14 @@ Node *deleteFromBST(Node *root, int value)
     }
 }
 
+bool isBST(Node *root, int min, int max){
+    if(root == NULL)
+        return true;
+
+    return (root->data > min && root->data < max && isBST(root->left, min, root->data) && isBST(root->right,root->data,max));
+    
+}
+
 int main()
 {
     Node *root = NULL;
@@ -162,13 +170,17 @@ int main()
     inorder(root);
     cout << endl;
 
-    int data;
-    cout << "Enter the item to be searched : ";
-    cin >> data;
-    if (search(root, data))
-        cout << "Element present" << endl;
-    else
-        cout << "Element is absent" << endl;
+    int a = INT_MIN;
+    int b = INT_MAX;
+    cout<<isBST(root, a,b);
+    
+    // int data;
+    // cout << "Enter the item to be searched : ";
+    // cin >> data;
+    // if (search(root, data))
+    //     cout << "Element present" << endl;
+    // else
+    //     cout << "Element is absent" << endl;
 
     return 0;
 }
