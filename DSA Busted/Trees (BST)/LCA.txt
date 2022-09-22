@@ -1,0 +1,21 @@
+// to give the LCA (lowest common ancestor) in the tree
+
+Node *LCA(Node *root, Node *p, Node *q){
+    if(root = NULL)
+        return NULL;
+
+    if(root->data < p->data && root->data < q->data)
+        return LCA(root->right, p, q);
+
+    if(root->data > p->data && root->data > q->data)
+        return LCA(root->left, p, q);
+    
+    return root;
+    
+}
+
+//root->data < p->data && root->data < q->data
+//root->data > p->data && root->data > q->data
+
+//if there is the condition like the above two mentioned
+// then in that case we got the LCA of the bst then simply return the root

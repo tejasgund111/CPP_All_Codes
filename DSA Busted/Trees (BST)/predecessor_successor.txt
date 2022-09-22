@@ -1,0 +1,40 @@
+// to give the inorder predecessor and successor of the given nodes
+// predecessor -> max element in the left subtree
+// successor -> min element in the right subtree
+
+pair<int ,int> predecessor_successor(Node *root, int key){
+    // finding the key
+    Node *temp = root;
+    int pre = -1;
+    int suc = -1; 
+
+    while(temp != NULL){
+        if(temp -> data > key){
+            succ = temp -> data;
+            temp = temp -> left;
+        }
+        else{
+            pre = temp -> data;
+            temp = temp -> left;
+        }
+
+    }
+
+    // predecessor
+    Node *leftTree = temp -> left;
+    while(leftTree != NULL){
+        pre = leftTree -> data;
+        leftTree = leftTree -> right;
+    }
+
+    // successor
+    Node *rightTree = temp -> right;
+    while(rightTree != NULL){
+        suc = rightTree -> data;
+        rightTree = rightTree -> left;
+    }
+
+    pair<int, int> ans = make_pair(pre, suc);
+
+    return ans;
+}

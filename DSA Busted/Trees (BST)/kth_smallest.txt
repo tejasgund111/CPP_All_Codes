@@ -14,3 +14,28 @@ void printKthSmallest(Node *root, int k)
         printKthSmallest(root->right, k);
     }
 }
+
+
+
+// babbar solution
+
+int kthSmallest(Node *root, int &i, int k){
+    if(root == NULL)
+        return -1;
+    
+    int left = kthSmallest(root -> left, i, k);
+    if(left != -1)
+        return left;
+
+    i++;
+    if(i == k)
+        return root->data;
+    
+    return kthSmallest(root -> right, i, k);
+}
+
+
+// if we want to find the kth largest then we can also use the same approach
+// kth largest = total nodes - k + 1
+
+// if we put above kth largest value in the above kthSmallest function at position of k we will get our kth largest value from the above function

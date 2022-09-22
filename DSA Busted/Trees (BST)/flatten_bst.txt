@@ -1,0 +1,38 @@
+//you have give a bst. your task is to flatten the given bst to a sorted list. more formally you have to create a right
+//skewed bst from the given bst .i.e. the left child of all the nodes must be NULL and value at the right child is greater 
+//than the current node
+
+
+
+void inorder(Node *root, vector<int> &in){
+    if(root == NULL)
+        return;
+    inorder(root->left, in);
+    in.push_back(root->data);
+    inorder(root->left, in);
+}
+
+
+Node *flattenBST(Node *root){
+    vector<int> inorderVal;
+    inorder(root, inorderVal); // stored inorder sorted values
+    int n = inorderVal.size();
+
+    if(root == NULL)
+        return NULL;
+
+    Node *newRoot = new Node(inorderVal[0]);
+    Node *curr = newRoot;
+
+    for(int i=1;i<n;i++){
+        Node *temp = new Node(inorderVal[i]);
+        curr->left = NULL;
+        curr->right = temp;
+        curr = temp;
+    }
+
+    curr->left = NULL;
+    curr->right = NULL;
+
+    return newRoot;  
+}

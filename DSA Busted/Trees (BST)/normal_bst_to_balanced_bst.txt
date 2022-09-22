@@ -1,0 +1,37 @@
+//you have give a bst of integers with n nodes.
+// your task is to find balanced bst with minimum height possible
+// A balanced bst is a bst in which the height of two subtrees of every node differs no more than 1
+
+1. find inorder
+2. find mid value of the inorder
+3. make the mid value as the root and put the left part in the left subtree and right part of the mid in the right subtree
+
+
+void inorder(Node *root, vector<int> &in){
+    if(root == NULL)
+        return;
+    inorder(root->left, in);
+    in.push_back(root->data);
+    inorder(root->left, in);
+}
+
+Node *inorderToBST(int s, int e, vector<int> &inorderVal){
+    if(s > e)
+        return NULL;
+    
+    int mid = (s+e)/2;
+    Node *root = new Node(inorderVal[mid]);
+    root->left = inorderToBST(s, mid-1, val);
+    root->right = inorderToBST(mid+1, e, val);
+
+
+}
+
+Node *balancedBST(Node *root){
+    vector<int> inorderVal;
+    inorder(root, inorderVal); // stored inorder sorted values
+   
+    return inorderToBST(0, inorderVal.size()-1, inorderVal);
+
+
+}

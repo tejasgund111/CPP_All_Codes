@@ -1,0 +1,40 @@
+// you have been given an array 'preorder'
+// your task is to construct a bst that matches the given preorder traversal
+
+logic 1.
+we can directly insert that array elements in the bst using our technique to insert the nodes in the bst
+time complexity -> O(n^2)
+
+logic 2.
+we can find the inorder using preorder as it is sorted and then we can make the bst using the inorder and preorder
+time complexity -> O(nlogn)
+
+logic 3.
+time complexity -> O(n)  // effctive than the above two approaches
+
+// here the i is for taversing the vector
+
+Node *solve(vector<int> &preorder, int mini, int maxi, int &i){
+    if(i >= preorder.size())
+        return NULL;
+    if(preorder[i] < mini || preorder[i] > maxi)
+        return NULL;
+    
+    Node *root = new Node(preorder[i++]);
+    root->left = solve(preorder, mini, root->data, i);
+    root->right = solve(preorder, root->data, maxi, i);
+
+    return root;
+}
+
+
+Node *preorderToBST(vector<int> preorder){
+    int mini = INT_MIN;
+    int maxi = INT_MAX;
+    int i = 0;
+
+    return solve(preorder, mini, maxi, i);
+}
+
+// here in this approach we are just using the range based approach, just like we have used in the checking the tree is 
+// balanced or not
