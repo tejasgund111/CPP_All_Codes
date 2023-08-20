@@ -1,0 +1,88 @@
+//**********construct from inorder and preorder************
+
+int findPosition(int in[], int element, int n){
+    for(int i=0;i<n;i++){
+        if(in[i]==element)
+            return i;
+    }
+    return -1;
+}
+
+Node *solve(int in[], int pre[], int &index, int inorderStart, inorderEnd, int n){
+    if(index >= n || inorderStart > inorderEnd) return NULL;
+
+    int element = pre[index++];
+    Node *root = new Node(element);
+    int position = findPosition(in, element, n);
+
+    root->left = (in, pre, index,inorderStart, position-1, n);
+    root->right = (in, pre, index, position+1, inorderEnd, n);
+
+    return root;
+}
+
+Node *buildTree(int in[], int pre[], int n){
+    int preOrderIndex = 0;
+    Node *ans = solve(in, pre, preOrderIndex, 0, n-1);
+    return ans;
+}
+
+// optimization can be done by using map
+
+void createMapping(int in[], map<int, int>&nodeToIndex, int n){
+    for(int i=0;i<n;i++){
+        nodeToIndex[in[i]] = i;
+    }
+}
+
+Node *solve(int in[], int pre[], int &index, int inorderStart, inorderEnd, int n, map<int, int>& nodeToIndex){
+    if(index >= n || inorderStart > inorderEnd) return NULL;
+
+    int element = pre[index++];
+    Node *root = new Node(element);
+    int position = nodeToIndex[element];
+
+    root->left = (in, pre, index,inorderStart, position-1, n, mp);
+    root->right = (in, pre, index, position+1, inorderEnd, n, mp);
+
+    return root;
+}
+
+Node *buildTree(int in[], int pre[], int n){
+    int preOrderIndex = 0;
+    map<int, int> mp;
+    // create node to index map
+    createMapping(in, nodeToIndex, n);
+    Node *ans = solve(in, pre, preOrderIndex, 0, n-1);
+    return ans;
+}
+
+// **********construct from inorder and postorder*********
+
+void createMapping(int in[], map<int, int>&nodeToIndex, int n){
+    for(int i=0;i<n;i++){
+        nodeToIndex[in[i]] = i;
+    }
+}
+
+Node *solve(int in[], int post[], int &index, int inorderStart, inorderEnd, int n, map<int, int>& nodeToIndex){
+    if(index < 0 || inorderStart > inorderEnd) return NULL;
+
+    int element = post[index--];
+    Node *root = new Node(element);
+    int position = nodeToIndex[element];
+
+    root->right = (in, post, index, position+1, inorderEnd, n, mp);
+    root->left = (in, post, index,inorderStart, position-1, n, mp);
+
+    return root;
+}
+
+Node *buildTree(int in[], int post[], int n){
+    int postOrderIndex = n-1;
+    map<int, int> mp;
+    // create node to index map
+    createMapping(in, nodeToIndex, n);
+    Node *ans = solve(in, post, postOrderIndex, 0, n-1, n, mp);
+    return ans;
+}

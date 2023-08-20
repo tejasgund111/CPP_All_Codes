@@ -10,7 +10,6 @@ void insertionSort(int n, int arr[])
         int j = i - 1;
         for (; j >= 0; j--)
         {
-
             if (arr[j] > temp)
             {
                 // shift
@@ -25,6 +24,22 @@ void insertionSort(int n, int arr[])
         arr[j + 1] = temp;
     }
 }
+
+void insertionSort1(int n, int arr[])
+{
+    for (int i = 1; i < n; i++)
+    {
+        int temp = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > temp)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = temp;
+    }
+}
+
 void display(int n, int arr[])
 {
     cout << "Your sorted array-> ";

@@ -29,10 +29,11 @@ int main()
     int arr1[5] = {1, 3, 8, 10, 17};
     int arr2[5]= {8,10,17,1,3};
     int arr3[5]= {3,8,10,17,1};
+    int arr[7] = {4,5,6,7,0,1,2};
 
     cout << "Pivot element in array arr1 is at index : " << getPivot(arr1, 5) << endl;
     cout << "Pivot element in array arr2 is at index : " << getPivot(arr2, 5) << endl;
-    cout << "Pivot element in array arr3 is at index : " << getPivot(arr3, 5) << endl;
+    cout << "Pivot element in array arr3 is at index : " << getPivot(arr, 7) << endl;
 
     return 0;
 }
