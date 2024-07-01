@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+// Algorithm ->> Take an element and place at its correct position
 
 void insertionSort(int n, int arr[])
 {
@@ -40,6 +41,19 @@ void insertionSort1(int n, int arr[])
     }
 }
 
+void insertionSort2(int n, int arr[])
+{
+    for (int i = 0; i < n; i++)
+    {
+        int j = i;
+        while (j > 0 && arr[j - 1] > arr[j])
+        {
+            swap(arr[j - 1], arr[j]);
+            j--;
+        }
+    }
+}
+
 void display(int n, int arr[])
 {
     cout << "Your sorted array-> ";
@@ -52,7 +66,7 @@ void display(int n, int arr[])
 int main()
 {
     int arr[5] = {5, 4, 8, 2, 7};
-    insertionSort(5, arr);
+    insertionSort2(5, arr);
     display(5, arr);
     return 0;
 }

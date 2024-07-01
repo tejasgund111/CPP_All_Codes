@@ -23,8 +23,7 @@ void display(int arr[], int n)
 
 int main()
 {
-    int arr[6] = {0, 1, 0, 2, 0, 5};
-
+    int arr[6] = {1, 0, 0, 2, 0, 5};
     removeZero(arr, 6);
     display(arr, 6);
 

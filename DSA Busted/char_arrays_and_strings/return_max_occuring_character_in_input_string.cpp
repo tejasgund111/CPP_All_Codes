@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 char getMaxOccCharacter(string s)
@@ -30,11 +31,30 @@ char getMaxOccCharacter(string s)
     return 'a' + ans;
 }
 
+void get(string s){
+    map<char, int> mp;
+    for(int i=0;i<s.size();i++){
+        mp[s[i]]++;
+    }
+    char ch;
+    int in;
+    int maxi = 0;
+    for(auto i:mp){
+        cout<< i.first << " " << i.second << endl;
+        if(i.second > maxi){
+            ch = i.first;
+            in = i.second;
+        }
+    }
+    cout << "char->"<<ch<<" "<<in<<endl;
+}
+
 int main()
 {
     string s;
     cin >> s;
 
     cout << getMaxOccCharacter(s) << endl;
+    get(s);
     return 0;
 }

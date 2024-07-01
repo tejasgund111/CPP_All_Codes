@@ -1,0 +1,82 @@
+// 1. print the linked list
+
+void print(Node *head){
+    // base case
+    if(head == NULL)
+        return;
+    cout<<head->data<<endl; // print the data
+    print(head->next); // recursive call
+}
+
+
+// 2. print kth node from last
+
+void printKFromEnd(Node * head, int k){
+    if(head == NULL)
+        return;
+
+    // recursive call
+    printKFromEnd(head->next, k);
+    // wapas
+    k--;
+    if(k == 0)
+        cout<< head->data<<endl;
+    
+}
+
+// 3.  reverse the linked list
+
+Node* reverse(Node* head){
+    // base case
+    if(head == NULL || head->next == NULL)
+        return head;
+
+    Node * chotaHead = reverse(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    
+    return chotaHead;
+}
+
+Node *reverseIteratively(Node* head){
+    Node* curr = head;
+    Node* prev = NULL;
+    Node* forward;
+
+    while(curr != NULL){
+        forward = curr -> next;
+        curr -> next = prev;
+        prev = curr;
+        curr = forward;
+    }
+
+    return prev;
+}
+
+
+// 4.  reverse linked list in group of k
+
+Node* kReverse(Node* head, int k){
+    if(head == NULL)
+        return NULL;
+
+    // 1 case->  1st group of k nodes -> reverse
+    Node *prev = NULL;
+    Node* curr = head;
+    Node* forward;
+    int count = 0;
+
+    while(curr != NULL && count < k){
+        forward = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forward;
+        count++;
+    }
+
+    // check next is null or not
+    if(forward != NULL)
+        head->next = kReverse(forward, k);
+
+    return prev;
+}
