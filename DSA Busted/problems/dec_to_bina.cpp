@@ -16,6 +16,25 @@ void findBinary(int n)
         cout << arr[j];
     }
 }
+
+// string getBinary(int n){
+//     string str = "";
+//     while(n){
+//         int rem = n % 2;
+//         if(rem == 1){
+//             str += '1';
+//         }
+//         else {
+//             str += '0';
+//         }
+//         n = n/2;
+//     }
+//     reverse(str.begin(), str.end());
+
+//     return str;
+// }
+
+
 int main()
 {
     int n;

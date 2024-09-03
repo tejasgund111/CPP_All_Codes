@@ -8,11 +8,11 @@ int partition(vector<int> &arr, int low, int high)
     int j = high;
     while (i < j)
     {
-        while (arr[i] <= pivot && i <= high - 1)
+        while (arr[i] <= pivot && i <= high)
         {
             i++;
         }
-        while (arr[j] > pivot && j >= low + 1)
+        while (arr[j] > pivot && j >= low)
         {
             j--;
         }

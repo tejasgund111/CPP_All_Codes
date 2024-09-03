@@ -9,7 +9,7 @@ int main()
 
     int a = 0;
     int b = 1;
-    cout<<a<<" , "<<b<<" , ";
+    cout << a << " , " << b << " , ";
 
     for (int i = 1; i < n; i++)
     {
@@ -22,8 +22,8 @@ int main()
     return 0;
 }
 
-//program flow    : -->
-//1.starting is from 0 and 1
-//2.then the nextNumber is a+b
-//3.after that a will take the value of b and b will take the value of nextNumber
-//4.then the repitition of loop will continue
+// program flow    : -->
+// 1.starting is from 0 and 1
+// 2.then the nextNumber is a+b
+// 3.after that a will take the value of b and b will take the value of nextNumber
+// 4.then the repitition of loop will continue
